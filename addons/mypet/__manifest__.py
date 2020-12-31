@@ -6,10 +6,13 @@
     'website': "https://minhng.info",
     'category': 'Uncategorized',
     'version': '0.1',
-'depends': [
+    'depends': [
         'product',
     ],
-    'data': [],
+    'data': [
+        'security/ir.model.access.csv',
+        'view/my_pet_view.xml',
+    ],
     # 'qweb': ['static/src/xml/*.xml'],
     'installable': True,
     'application': True,

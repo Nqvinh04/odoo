@@ -1,0 +1,20 @@
+{
+    'name': "Hospital Manager",
+    'summary': """Hospital Services""",
+    'description': """Managing pet information""",
+    'sequence': '10',
+    'license': 'AGPL-3',
+    'author': "HieuCa",
+    'website': "odoomates.com",
+    'category': 'Extra Tools',
+    'version': '0.1',
+    'depends': [],
+    'data': [
+        'patient_view.xml',
+        'security/ir.model.access.csv',
+    ],
+    # 'qweb': ['static/src/xml/*.xml'],
+    'installable': True,
+    'application': True,
+    'auto_install': False,
+}

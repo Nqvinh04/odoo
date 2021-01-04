@@ -8,10 +8,14 @@
     'website': "odoomates.com",
     'category': 'Extra Tools',
     'version': '0.1',
-    'depends': [],
+    'depends': [
+        'base',
+        'mail',
+    ],
     'data': [
-        'patient_view.xml',
+        'data/sequence.xml',
         'security/ir.model.access.csv',
+        'patient_view.xml',
     ],
     # 'qweb': ['static/src/xml/*.xml'],
     'installable': True,

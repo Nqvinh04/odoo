@@ -12,8 +12,10 @@
     'data': [
         'security/ir.model.access.csv',
         'views/my_pet_plus_views.xml',
+        'views/product_pet_views.xml',
     ],
     # 'qweb': ['static/src/xml/*.xml'],
     'installable': True,
     'application': True,
+    'auto-install': False,
 }

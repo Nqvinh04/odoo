@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data>
-        <record id="super_pet_form_view" model="ir.ui.view">
-            <field name="name">super.pet.form.view</field>
-            <field name="model">super.pet</field>
+        <record id="product_pet_form_view" model="ir.ui.view">
+            <field name="name">product.pet.form.view</field>
+            <field name="model">product.pet</field>
             <field name="arch" type="xml">
                 <form>
                     <sheet>
@@ -15,11 +15,14 @@
                         </div>
                         <group>
                             <group>
-                                <field name="is_super_strength"/>
-                                <field name="is_fly"/>
+                                <field name="my_pet_id"/>
+                                <field name="pet_type"/>
+                                <field name="pet_color"/>
                             </group>
                             <group>
-                                <field name="planet"/>
+                                <field name="basic_price"/>
+                                <field name="bonus_price"/>
+                                <field name="final_price"/>
                             </group>
                         </group>
                         <group name="images">
@@ -60,35 +63,37 @@
             </field>
         </record>
 
-        <record id="super_pet_tree_view" model="ir.ui.view">
-            <field name="name">super.pet.tree.view</field>
-            <field name="model">super.pet</field>
+        <record id="product_pet_tree_view" model="ir.ui.view">
+            <field name="name">product.pet.tree.view</field>
+            <field name="model">product.pet</field>
             <field name="arch" type="xml">
-                <tree string="Super Pets" default_order="create_date desc">
+                <tree string="Product Pets" default_order="create_date desc">
                     <field name="name"/>
                     <field name="nickname"/>
                     <field name="age"/>
                     <field name="weight"/>
-                    <field name="dob"/>
                     <field name="gender"/>
-                    <field name="owner_id"/>
+                    <field name="pet_type"/>
+                    <field name="pet_color"/>
+                    <field name="final_price"/>
                 </tree>
             </field>
         </record>
 
-        <record id="action_super_pet" model="ir.actions.act_window">
-            <field name="name">Super Pet</field>
+        <record id="action_product_pet" model="ir.actions.act_window">
+            <field name="name">Product Pet</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="res_model">super.pet</field>
-            <!-- <field name="view_type">form</field> --> <!-- Odoo 13 has removed this field -->
+            <field name="res_model">product.pet</field>
+            <!-- <field name="view_type">form</field> -->
+            <!-- Odoo 13 has removed this field -->
             <field name="view_ids" eval="[(5, 0, 0),
-                (0, 0, {'view_mode': 'tree', 'view_id': ref('super_pet_tree_view')}),
-                (0, 0, {'view_mode': 'form', 'view_id': ref('super_pet_form_view')})]"/>
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('product_pet_tree_view')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('product_pet_form_view')})]"/>
         </record>
 
-        <menuitem id="menu_super_pet"
-            name="Super Pet"
-            action="action_super_pet"
+        <menuitem id="menu_product_pet"
+            name="Product Pet"
+            action="action_product_pet"
             sequence="10"
             groups="base.group_user"/>
     </data>

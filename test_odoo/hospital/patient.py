@@ -1,18 +1,25 @@
 from odoo import models, fields, api, _
 
 
+class SaleOrderInherit(models.Model):
+    _inherit = 'sale.order'
+
+    patient_name = fields.Char(string='Patient Name')
+
+
 class HospitalPatient(models.Model):
     _name = 'hospital.patient'
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = 'Patient Record'
     _rec_name = 'patient_name'
 
-    patient_name = fields.Char(String='Name', required=True)
-    patient_age = fields.Integer(String='Age')
-    notes = fields.Text(String='Notes')
-    image = fields.Binary(String='Image')
-    name = fields.Char(String='Test')
-    name_seq = fields.Char(string='Order Reference', required=True, copy=False, readonly=True, index=True, default=lambda self: _('New'))
+    patient_name = fields.Char(string='Name', required=True)
+    patient_age = fields.Integer(string='Age')
+    notes = fields.Text(string='Notes')
+    image = fields.Binary(string='Image')
+    name = fields.Char(string='Test')
+    name_seq = fields.Char(string='Order Reference', required=True, copy=False, readonly=True, index=True,
+                           default=lambda self: _('New'))
 
     @api.model
     def create(self, vals):

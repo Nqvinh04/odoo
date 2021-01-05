@@ -11,6 +11,7 @@
     'depends': [
         'base',
         'mail',
+        'sale',
     ],
     'data': [
         'data/sequence.xml',

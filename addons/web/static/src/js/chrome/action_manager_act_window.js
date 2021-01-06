@@ -25,11 +25,11 @@ ActionManager.include({
 
     /**
      * Override to handle the case of lazy-loaded controllers, which may be the
-     * last controller in the stack, but which should not be considered as
-     * current controller as they don't have an alive widget.
+     * last controllers in the stack, but which should not be considered as
+     * current controllers as they don't have an alive widget.
      *
      * Note: this function assumes that there can be at most one lazy loaded
-     * controller in the stack
+     * controllers in the stack
      *
      * @override
      */
@@ -127,7 +127,7 @@ ActionManager.include({
     //--------------------------------------------------------------------------
 
     /**
-     * Instantiates the controller for a given action and view type, and adds it
+     * Instantiates the controllers for a given action and view type, and adds it
      * to the list of controllers in the action.
      *
      * @private
@@ -139,14 +139,14 @@ ActionManager.include({
      * @param {Object} action.env
      * @param {string} viewType
      * @param {Object} [viewOptions] dict of options passed to the initialization
-     *   of the controller's widget
+     *   of the controllers's widget
      * @param {Object} [options]
-     * @param {string} [options.controllerID=false] when the controller has
+     * @param {string} [options.controllerID=false] when the controllers has
      *   previously been lazy-loaded, we want to keep its jsID when loading it
-     * @param {integer} [options.index=0] the controller's index in the stack
+     * @param {integer} [options.index=0] the controllers's index in the stack
      * @param {boolean} [options.lazy=false] set to true to differ the
-     *   initialization of the controller's widget
-     * @returns {Promise<Object>} resolved with the created controller
+     *   initialization of the controllers's widget
+     * @returns {Promise<Object>} resolved with the created controllers
      */
     _createViewController: function (action, viewType, viewOptions, options) {
         var self = this;
@@ -233,7 +233,7 @@ ActionManager.include({
                 }
             });
             // If controllerDef is not resolved yet, reject it so that the
-            // controller will be correctly destroyed as soon as it'll be ready,
+            // controllers will be correctly destroyed as soon as it'll be ready,
             // and its reference will be removed. Lazy-loaded controllers do
             // not have a reject function on their promise
             if (controllerDef.reject) {
@@ -286,12 +286,12 @@ ActionManager.include({
             var lazyViewDef;
             var lazyControllerID;
             if (lazyView) {
-                // if the main view is lazy-loaded, its (lazy-loaded) controller is inserted
-                // into the controller stack (so that breadcrumbs can be correctly computed),
+                // if the main view is lazy-loaded, its (lazy-loaded) controllers is inserted
+                // into the controllers stack (so that breadcrumbs can be correctly computed),
                 // so we force clear_breadcrumbs to false so that it won't be removed when the
-                // current controller will be inserted afterwards
+                // current controllers will be inserted afterwards
                 options.clear_breadcrumbs = false;
-                // this controller being lazy-loaded, this call is actually sync
+                // this controllers being lazy-loaded, this call is actually sync
                 lazyViewDef = self._createViewController(action, lazyView.type, {}, {lazy: true})
                     .then(function (lazyLoadedController) {
                         lazyControllerID = lazyLoadedController.jsID;
@@ -443,12 +443,12 @@ ActionManager.include({
         }
     },
     /**
-     * Overrides to handle the case where the controller to restore is from an
+     * Overrides to handle the case where the controllers to restore is from an
      * 'ir.actions.act_window' action. In this case, only the controllers
      * stacked over the one to restore *that are not from the same action* are
      * destroyed.
-     * For instance, when going back to the list controller from a form
-     * controller of the same action using the breadcrumbs, the form controller
+     * For instance, when going back to the list controllers from a form
+     * controllers of the same action using the breadcrumbs, the form controllers
      * isn't destroyed, as it might be reused in the future.
      *
      * @override
@@ -474,13 +474,13 @@ ActionManager.include({
         return this._super.apply(this, arguments);
     },
     /**
-     * Handles the switch from a controller to another (either inside the same
+     * Handles the switch from a controllers to another (either inside the same
      * window action, or from a window action to another using the breadcrumbs).
      *
      * @private
-     * @param {Object} controller the controller to switch to
+     * @param {Object} controllers the controllers to switch to
      * @param {Object} [viewOptions]
-     * @return {Promise} resolved when the new controller is in the DOM
+     * @return {Promise} resolved when the new controllers is in the DOM
      */
     _switchController: function (action, viewType, viewOptions) {
         var self = this;
@@ -492,7 +492,7 @@ ActionManager.include({
         var currentController = this.getCurrentController();
         var index;
         if (currentController.actionID !== action.jsID) {
-            // the requested controller is from another action, so we went back
+            // the requested controllers is from another action, so we went back
             // to a previous action using the breadcrumbs
             var controller = _.findWhere(this.controllers, {
                 actionID: action.jsID,
@@ -500,7 +500,7 @@ ActionManager.include({
             });
             index = _.indexOf(this.controllerStack, controller.jsID);
         } else {
-            // the requested controller is from the same action as the current
+            // the requested controllers is from the same action as the current
             // one, so we either
             //   1) go one step back from a mono record view to a multi record
             //      one using the breadcrumbs
@@ -509,17 +509,17 @@ ActionManager.include({
             //   3) or we opened a record from a multi record view
             if (view.multiRecord) {
                 // cases 1) and 2) (with multi record views): replace the first
-                // controller linked to the same action in the stack
+                // controllers linked to the same action in the stack
                 index = _.findIndex(this.controllerStack, function (controllerID) {
                     return self.controllers[controllerID].actionID === action.jsID;
                 });
             } else if (!_.findWhere(action.views, {type: currentController.viewType}).multiRecord) {
                 // case 2) (with mono record views): replace the last
-                // controller by the new one if they are from the same action
+                // controllers by the new one if they are from the same action
                 // and if they both are mono record
                 index = this.controllerStack.length - 1;
             } else {
-                // case 3): insert the controller on the top of the controller
+                // case 3): insert the controllers on the top of the controllers
                 // stack
                 index = this.controllerStack.length;
             }
@@ -557,7 +557,7 @@ ActionManager.include({
                 // if the controllerDef is rejected, it probably means that the js
                 // code or the requests made to the server crashed.  In that case,
                 // if we reuse the same promise, then the switch to the view is
-                // definitely blocked.  We want to use a new controller, even though
+                // definitely blocked.  We want to use a new controllers, even though
                 // it is very likely that it will recrash again.  At least, it will
                 // give more feedback to the user, and it could happen that one
                 // record crashes, but not another.
@@ -699,7 +699,7 @@ ActionManager.include({
     /**
      * @private
      * @param {OdooEvent} ev
-     * @param {string} ev.data.controllerID the id of the controller that
+     * @param {string} ev.data.controllerID the id of the controllers that
      *   triggered the event
      * @param {string} ev.data.viewType the type of view to switch to
      * @param {integer} [ev.data.res_id] the id of the record to open (for
@@ -712,8 +712,8 @@ ActionManager.include({
         var viewType = ev.data.view_type;
         var currentController = this.getCurrentController();
         if (currentController.jsID === ev.data.controllerID) {
-            // only switch to the requested view if the controller that
-            // triggered the request is the current controller
+            // only switch to the requested view if the controllers that
+            // triggered the request is the current controllers
             var action = this.actions[currentController.actionID];
             var currentControllerState = currentController.widget.exportState();
             action.controllerState = _.extend({}, action.controllerState, currentControllerState);

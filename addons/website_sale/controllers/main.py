@@ -1009,7 +1009,7 @@ class WebsiteSale(http.Controller):
 
     @http.route(['/shop/confirmation'], type='http', auth="public", website=True, sitemap=False)
     def payment_confirmation(self, **post):
-        """ End of checkout process controller. Confirmation is basically seing
+        """ End of checkout process controllers. Confirmation is basically seing
         the status of a sale.order. State at this point :
 
          - should not have any context / session info: clean them

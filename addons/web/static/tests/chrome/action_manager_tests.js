@@ -415,7 +415,7 @@ QUnit.module('ActionManager', {
         });
         await actionManager.doAction(3);
         assert.strictEqual($('.o_control_panel .breadcrumb-item').length, 1,
-            "there should be one controller in the breadcrumbs");
+            "there should be one controllers in the breadcrumbs");
 
         // push another action flagged with 'no_breadcrumbs=true'
         await actionManager.doAction(4);
@@ -470,7 +470,7 @@ QUnit.module('ActionManager', {
 
         await testUtils.nextTick();
         assert.strictEqual($('.o_control_panel .breadcrumb-item').length, 1,
-            "there should be one controller in the breadcrumbs");
+            "there should be one controllers in the breadcrumbs");
         assert.strictEqual($('.o_control_panel .breadcrumb-item').text(), 'Partners Action 4',
             "breadcrumbs should display the display_name of the action");
 
@@ -981,7 +981,7 @@ QUnit.module('ActionManager', {
         await actionManager.doAction(4);
 
         assert.strictEqual($('.o_control_panel .breadcrumb li').length, 1,
-            "there should be one controller in the breadcrumbs");
+            "there should be one controllers in the breadcrumbs");
         assert.strictEqual($('.o_control_panel .breadcrumb li').text(), 'Partners Action 4',
             "breadcrumbs should contain the display_name of the opened record");
 
@@ -1259,7 +1259,7 @@ QUnit.module('ActionManager', {
         assert.strictEqual(actionManager.$('.o_client_action .o_content').text(), 'default value',
             "should have rendered the client action");
         assert.strictEqual($('.o_control_panel .breadcrumb-item').length, 1,
-            "there should be one controller in the breadcrumbs");
+            "there should be one controllers in the breadcrumbs");
 
         // update param 'a' in the url
          await actionManager.loadState({
@@ -1270,7 +1270,7 @@ QUnit.module('ActionManager', {
         assert.strictEqual(actionManager.$('.o_client_action .o_content').text(), 'new value',
             "should have rerendered the client action with the correct param");
         assert.strictEqual($('.o_control_panel .breadcrumb-item').length, 1,
-            "there should still be one controller in the breadcrumbs");
+            "there should still be one controllers in the breadcrumbs");
 
         // should have executed the client action twice
         assert.verifySteps(['start', 'start']);
@@ -1495,7 +1495,7 @@ QUnit.module('ActionManager', {
         actionManager.destroy();
     });
 
-    QUnit.test('execute a new action while loading a lazy-loaded controller', async function (assert) {
+    QUnit.test('execute a new action while loading a lazy-loaded controllers', async function (assert) {
         assert.expect(15);
 
         var def;
@@ -1624,7 +1624,7 @@ QUnit.module('ActionManager', {
         actionManager.destroy();
     });
 
-    QUnit.test('execute a new action while switching to another controller', async function (assert) {
+    QUnit.test('execute a new action while switching to another controllers', async function (assert) {
         assert.expect(15);
 
         var def;
@@ -1723,7 +1723,7 @@ QUnit.module('ActionManager', {
         assert.containsNone(actionManager, '.o_list_view',
             "should not display the list view of action 3");
         assert.strictEqual($('.o_control_panel .breadcrumb-item').length, 1,
-            "there should be one controller in the breadcrumbs");
+            "there should be one controllers in the breadcrumbs");
 
         assert.verifySteps([
             '/web/action/load', // action 3
@@ -1771,7 +1771,7 @@ QUnit.module('ActionManager', {
         assert.containsNone(actionManager, '.o_list_view',
             "should not display the list view of action 3");
         assert.strictEqual($('.o_control_panel .breadcrumb-item').length, 1,
-            "there should be one controller in the breadcrumbs");
+            "there should be one controllers in the breadcrumbs");
 
         assert.verifySteps([
             '/web/action/load', // action 3
@@ -1898,9 +1898,9 @@ QUnit.module('ActionManager', {
         assert.strictEqual($('.o_control_panel:visible').length, 1,
             "should have rendered a control panel");
         assert.strictEqual($('.o_control_panel .breadcrumb-item').length, 1,
-            "there should be one controller in the breadcrumbs");
+            "there should be one controllers in the breadcrumbs");
         assert.strictEqual($('.o_control_panel .breadcrumb-item').text(), 'Hello',
-            "breadcrumbs should still display the title of the controller");
+            "breadcrumbs should still display the title of the controllers");
         assert.strictEqual(actionManager.$('.o_client_action_test .o_content').text(),
             'Hello World', "should have correctly rendered the client action");
 
@@ -2589,14 +2589,14 @@ QUnit.module('ActionManager', {
         await actionManager.doAction(3);
 
         assert.strictEqual($('.o_control_panel .breadcrumb-item').length, 1,
-            "there should be one controller in the breadcrumbs");
+            "there should be one controllers in the breadcrumbs");
         assert.strictEqual($('.o_control_panel .breadcrumb-item').text(), 'Partners',
             "breadcrumbs should display the display_name of the action");
 
         // switch to kanban view
         await testUtils.dom.click($('.o_control_panel .o_cp_switch_kanban'));
         assert.strictEqual($('.o_control_panel .breadcrumb-item').length, 1,
-            "there should still be one controller in the breadcrumbs");
+            "there should still be one controllers in the breadcrumbs");
         assert.strictEqual($('.o_control_panel .breadcrumb-item').text(), 'Partners',
             "breadcrumbs should still display the display_name of the action");
 
@@ -2611,14 +2611,14 @@ QUnit.module('ActionManager', {
         // go back to kanban view using the breadcrumbs
         await testUtils.dom.click($('.o_control_panel .breadcrumb a'));
         assert.strictEqual($('.o_control_panel .breadcrumb-item').length, 1,
-            "there should be one controller in the breadcrumbs");
+            "there should be one controllers in the breadcrumbs");
         assert.strictEqual($('.o_control_panel .breadcrumb-item').text(), 'Partners',
             "breadcrumbs should display the display_name of the action");
 
         // switch back to list view
         await testUtils.dom.click($('.o_control_panel .o_cp_switch_list'));
         assert.strictEqual($('.o_control_panel .breadcrumb-item').length, 1,
-            "there should still be one controller in the breadcrumbs");
+            "there should still be one controllers in the breadcrumbs");
         assert.strictEqual($('.o_control_panel .breadcrumb-item').text(), 'Partners',
             "breadcrumbs should still display the display_name of the action");
 
@@ -2634,7 +2634,7 @@ QUnit.module('ActionManager', {
         assert.containsOnce(actionManager, '.o_list_view',
             "should be back on list view");
         assert.strictEqual($('.o_control_panel .breadcrumb-item').length, 1,
-            "there should be one controller in the breadcrumbs");
+            "there should be one controllers in the breadcrumbs");
         assert.strictEqual($('.o_control_panel .breadcrumb-item').text(), 'Partners',
             "breadcrumbs should display the display_name of the action");
 
@@ -2824,7 +2824,7 @@ QUnit.module('ActionManager', {
         assert.containsNone(actionManager, '.o_form_view',
             "shouldn't display the form view yet");
         assert.strictEqual($('.o_control_panel .breadcrumb-item').length, 1,
-            "there should still be one controller in the breadcrumbs");
+            "there should still be one controllers in the breadcrumbs");
         def.resolve();
         await testUtils.nextTick();
         assert.containsNone(actionManager, '.o_list_view',
@@ -2850,7 +2850,7 @@ QUnit.module('ActionManager', {
         assert.containsOnce(actionManager, '.o_list_view',
             "should display the list view");
         assert.strictEqual($('.o_control_panel .breadcrumb-item').length, 1,
-            "there should be one controller in the breadcrumbs");
+            "there should be one controllers in the breadcrumbs");
 
         actionManager.destroy();
     });
@@ -2915,7 +2915,7 @@ QUnit.module('ActionManager', {
         actionManager.destroy();
     });
 
-    QUnit.test('reload previous controller when discarding a new record', async function (assert) {
+    QUnit.test('reload previous controllers when discarding a new record', async function (assert) {
         assert.expect(8);
 
         var actionManager = await createActionManager({
@@ -3315,7 +3315,7 @@ QUnit.module('ActionManager', {
         actionManager.destroy();
     });
 
-    QUnit.test('limit set in action is passed to each created controller', async function (assert) {
+    QUnit.test('limit set in action is passed to each created controllers', async function (assert) {
         assert.expect(2);
 
         _.findWhere(this.actions, {id: 3}).limit = 2;
@@ -3377,7 +3377,7 @@ QUnit.module('ActionManager', {
         // go back using the breadcrumbs
         await testUtils.dom.click($('.o_control_panel .breadcrumb a:first'));
         assert.strictEqual($('.o_control_panel .breadcrumb-item').length, 1,
-            "there should be one controller in the breadcrumbs");
+            "there should be one controllers in the breadcrumbs");
         assert.strictEqual($('.o_control_panel .breadcrumb-item:last').text(), 'Partners',
             "breadcrumbs should contain the name of the current action");
 
@@ -3704,7 +3704,7 @@ QUnit.module('ActionManager', {
         actionManager.destroy();
     });
 
-    QUnit.test("destroy action with lazy loaded controller", async function (assert) {
+    QUnit.test("destroy action with lazy loaded controllers", async function (assert) {
         assert.expect(6);
 
         var actionManager = await createActionManager({

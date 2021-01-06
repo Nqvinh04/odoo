@@ -44,7 +44,7 @@ class PaymentProcessing(http.Controller):
     def get_payment_transaction_ids():
         # return the ids and not the recordset, since we might need to
         # sudo the browse to access all the record
-        # I prefer to let the controller chose when to access to payment.transaction using sudo
+        # I prefer to let the controllers chose when to access to payment.transaction using sudo
         return request.session.get("__payment_tx_ids__", [])
 
     @http.route(['/payment/process'], type="http", auth="public", website=True, sitemap=False)

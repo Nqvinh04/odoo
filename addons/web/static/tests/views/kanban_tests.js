@@ -5677,7 +5677,7 @@ QUnit.module('Views', {
 
         kanban = await createView(params);
 
-        // call destroy function of controller to ensure that it correctly destroys everything
+        // call destroy function of controllers to ensure that it correctly destroys everything
         kanban.__destroy();
 
         // + 1 (parent)

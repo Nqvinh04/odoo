@@ -209,7 +209,7 @@ def url_for(url_from, lang_code=None, no_rewrite=False):
 def is_multilang_url(local_url, lang_url_codes=None):
     ''' Check if the given URL content is supposed to be translated.
         To be considered as translatable, the URL should either:
-        1. Match a POST (non-GET actually) controller that is `website=True` and
+        1. Match a POST (non-GET actually) controllers that is `website=True` and
            either `multilang` specified to True or if not specified, with `type='http'`.
         2. If not matching 1., everything not under /static/ will be translatable
     '''
@@ -434,7 +434,7 @@ class IrHttp(models.AbstractModel):
             new_url = request.httprequest.path.replace('//', '/') + '?' + request.httprequest.query_string.decode('utf-8')
             return werkzeug.utils.redirect(new_url, 301)
 
-        # locate the controller method
+        # locate the controllers method
         try:
             rule, arguments = cls._match(request.httprequest.path)
             func = rule.endpoint

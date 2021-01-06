@@ -339,7 +339,7 @@ odoo.define('website_slides.quiz', function (require) {
         /**
          * Extract data from exiting DOM rendered server-side, to have the list of questions with their
          * relative answers.
-         * This method should return the same format as /slide/quiz/get controller.
+         * This method should return the same format as /slide/quiz/get controllers.
          *
          * @return {Array<Object>} list of questions with answers
          */

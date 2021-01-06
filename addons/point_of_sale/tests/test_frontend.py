@@ -321,7 +321,7 @@ class TestUi(odoo.tests.HttpCase):
             ('res_id', '=', False)
         ]).write({'value_reference': 'product.pricelist,%s' % public_pricelist.id})
 
-        # open a session, the /pos/web controller will redirect to it
+        # open a session, the /pos/web controllers will redirect to it
         main_pos_config.open_session_cb()
 
         # needed because tests are run before the module is marked as

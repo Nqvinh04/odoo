@@ -1130,7 +1130,7 @@ var MockServer = Class.extend({
         return result.records;
     },
     /**
-     * Simulate a 'search_read' operation, from the controller point of view
+     * Simulate a 'search_read' operation, from the controllers point of view
      *
      * @private
      * @private

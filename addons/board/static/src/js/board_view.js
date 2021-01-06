@@ -137,7 +137,7 @@ var BoardRenderer = FormRenderer.extend({
         this.noContentHelp = params.noContentHelp;
         this.actionsDescr = {};
         this._boardSubcontrollers = []; // for board: controllers of subviews
-        this._boardFormViewIDs = {}; // for board: mapping subview controller to form view id
+        this._boardFormViewIDs = {}; // for board: mapping subview controllers to form view id
     },
     /**
      * Call `on_attach_callback` for each subview
@@ -410,7 +410,7 @@ var BoardRenderer = FormRenderer.extend({
     },
     /**
      * Let FormController know which form view it should display based on the
-     * window action of the sub controller that is switching view
+     * window action of the sub controllers that is switching view
      *
      * @private
      * @param {OdooEvent} event

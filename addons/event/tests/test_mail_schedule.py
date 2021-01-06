@@ -51,7 +51,7 @@ class TestMailSchedule(TestEventCommon):
         # check subscription scheduler
         schedulers = self.env['event.mail'].search([('event_id', '=', test_event.id), ('interval_type', '=', 'after_sub')])
         self.assertEqual(len(schedulers), 1, 'event: wrong scheduler creation')
-        self.assertEqual(schedulers[0].scheduled_date, test_event.create_date, 'event: incorrect scheduled date for checking controller')
+        self.assertEqual(schedulers[0].scheduled_date, test_event.create_date, 'event: incorrect scheduled date for checking controllers')
 
         # verify that subscription scheduler was auto-executed after each registration
         self.assertEqual(len(schedulers[0].mail_registration_ids), 2, 'event: incorrect number of mail scheduled date')

@@ -12,7 +12,7 @@ var _t = core._t;
 /**
  * Widget PortalChatter
  *
- * - Fetch message fron controller
+ * - Fetch message fron controllers
  * - Display chatter: pager, total message, composer (according to access right)
  * - Provider API to filter displayed messages
  */

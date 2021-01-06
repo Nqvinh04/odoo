@@ -1,6 +1,6 @@
 odoo.define('point_of_sale.gui', function (require) {
 "use strict";
-// this file contains the Gui, which is the pos 'controller'.
+// this file contains the Gui, which is the pos 'controllers'.
 // It contains high level methods to manipulate the interface
 // such as changing between screens, creating popups, etc.
 //

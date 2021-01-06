@@ -447,7 +447,7 @@ class WebsiteSlides(WebsiteProfile):
                 })
 
         # fetch slides and handle uncategorized slides; done as sudo because we want to display all
-        # of them but unreachable ones won't be clickable (+ slide controller will crash anyway)
+        # of them but unreachable ones won't be clickable (+ slide controllers will crash anyway)
         # documentation mode may display less slides than content by category but overhead of
         # computation is reasonable
         values['slide_promoted'] = request.env['slide.slide'].sudo().search(domain, limit=1, order=order)

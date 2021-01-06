@@ -83,7 +83,7 @@ QUnit.module('Views', {
             }).then(async function (view) {
                 var $banner = view.$('.hello_banner');
                 assert.strictEqual($banner.length, 1,
-                    "The view should contain the response from the controller.");
+                    "The view should contain the response from the controllers.");
                 assert.verifySteps(['/module/hello_banner'], "The banner should be fetched.");
 
                 var $head_link = $('head link[href$="' + test_css_url + '"]');

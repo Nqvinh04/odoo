@@ -42,7 +42,7 @@ function toggleMeasuresDropdown(pivot) {
  * Reloads a graph view.
  *
  * @param {PivotController} pivot
- * @param {[Object]} params given to the controller reload method
+ * @param {[Object]} params given to the controllers reload method
  */
 function reload(pivot, params) {
     return pivot.reload(params);

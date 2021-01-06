@@ -630,7 +630,7 @@ odoo.define('website_slides.fullscreen', function (require) {
             }).then(function() {
                 if (slide._autoSetDone && !session.is_website_user) {  // no useless RPC call
                     if (['document', 'presentation'].includes(slide.type)) {
-                        // only set the slide as completed after iFrame is loaded to avoid concurrent execution with 'embedUrl' controller
+                        // only set the slide as completed after iFrame is loaded to avoid concurrent execution with 'embedUrl' controllers
                         self.el.querySelector('iframe.o_wslides_iframe_viewer').addEventListener('load', () => self._setCompleted(slide.id));
                     } else {
                            return self._setCompleted(slide.id);

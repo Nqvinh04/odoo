@@ -67,7 +67,7 @@ function quickCreate(kanban, value, fieldName) {
  * Reloads a kanban view.
  *
  * @param {KanbanController} kanban
- * @param {[Object]} params given to the controller reload method
+ * @param {[Object]} params given to the controllers reload method
  * @returns {Promise}
  */
 function reload(kanban, params) {

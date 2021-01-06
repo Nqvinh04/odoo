@@ -139,7 +139,7 @@ class WebsiteCustomer(http.Controller):
         }
         return request.render("website_customer.index", values)
 
-    # Do not use semantic controller due to SUPERUSER_ID
+    # Do not use semantic controllers due to SUPERUSER_ID
     @http.route(['/customers/<partner_id>'], type='http', auth="public", website=True)
     def partners_detail(self, partner_id, **post):
         _, partner_id = unslug(partner_id)

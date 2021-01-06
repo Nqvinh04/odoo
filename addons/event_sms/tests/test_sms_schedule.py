@@ -49,7 +49,7 @@ class TestSMSSchedule(TestEventCommon, MockSMS):
         # check subscription scheduler
         schedulers = self.env['event.mail'].search([('event_id', '=', self.event_0.id), ('interval_type', '=', 'after_sub')])
         self.assertEqual(len(schedulers), 1)
-        self.assertEqual(schedulers.scheduled_date, self.event_0.create_date, 'event: incorrect scheduled date for checking controller')
+        self.assertEqual(schedulers.scheduled_date, self.event_0.create_date, 'event: incorrect scheduled date for checking controllers')
 
         # verify that subscription scheduler was auto-executed after each registration
         self.assertEqual(len(schedulers.mail_registration_ids), 3)

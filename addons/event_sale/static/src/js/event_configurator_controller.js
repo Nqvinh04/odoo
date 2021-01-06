@@ -4,7 +4,7 @@ odoo.define('event.EventConfiguratorFormController', function (require) {
 var FormController = require('web.FormController');
 
 /**
- * This controller is overridden to allow configuring sale_order_lines through a popup
+ * This controllers is overridden to allow configuring sale_order_lines through a popup
  * window when a product with 'event_ok' is selected.
  *
  * This allows keeping an editable list view for sales order and remove the noise of

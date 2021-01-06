@@ -1073,7 +1073,7 @@ class Crawler(HttpCase):
         json = {'params': {'website_id': website_2.id}}
         self.opener.post(url=url, json=json)
 
-        # Test controller
+        # Test controllers
         url = base_url + '/website/get_switchable_related_views'
         json = {'params': {'key': '_website_event.index'}}
         response = self.opener.post(url=url, json=json)
@@ -1113,7 +1113,7 @@ class Crawler(HttpCase):
         json = {'params': {'website_id': website_1.id}}
         self.opener.post(url=url, json=json)
 
-        # Test controller
+        # Test controllers
         url = base_url + '/website/get_switchable_related_views'
         json = {'params': {'key': '_website_event.index'}}
         response = self.opener.post(url=url, json=json)
@@ -1148,7 +1148,7 @@ class Crawler(HttpCase):
         #   | Events     <==== JS code creates a new Events header as the Event's children views are not one after the other anymore..
         #       | Photos <==== .. since Photos got duplicated and now have a bigger ID that others
 
-        # Test controller
+        # Test controllers
         url = base_url + '/website/get_switchable_related_views'
         json = {'params': {'key': '_website_event.index'}}
         response = self.opener.post(url=url, json=json)

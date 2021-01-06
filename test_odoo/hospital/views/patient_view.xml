@@ -107,5 +107,11 @@
               name="Patients"
               parent="hospital_root"
               action="action_patient"/>
+
+<!--    <menuitem id="create_appointment"-->
+<!--              name="Create Appointment"-->
+<!--              parent="hospital_root"-->
+<!--              action="crete_appointment_wizard"-->
+<!--              sequence="40"/>-->
 </odoo>
 

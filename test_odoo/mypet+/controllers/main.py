@@ -15,6 +15,7 @@ class MyPetAPIInherit(odoo.addons.mypet.controllers.main.MyPetAPI):
         })
 
     @odoo.http.route()
+
     def pet_handler(self, dbname, id, **kw):
         _logger.warning("Pet handler called~")
         result = super(MyPetAPIInherit, self).pet_handler(dbname, id)

@@ -5,9 +5,9 @@
 <!--        <field name="model">sale.order</field>-->
 <!--        <field name="inherit_id" ref="sale.view_order_form"/>-->
 <!--        <field name="arch" type="xml">-->
-<!--            <field name="parent_id" position="after">-->
+<!--            <xpath expr="//group[@name='partner_id']/group[1]" position="after">-->
 <!--                <field name="patient_name"/>-->
-<!--            </field>-->
+<!--            </xpath>-->
 <!--        </field>-->
 <!--    </record>-->
 

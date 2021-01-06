@@ -127,7 +127,7 @@
             <field name="model">sale.order</field>
             <field name="arch" type="xml">
                 <graph string="Sales Orders">
-                    <field name="partner_id"/>
+                    <field name="   "/>
                     <field name="amount_total" type="measure"/>
                 </graph>
             </field>

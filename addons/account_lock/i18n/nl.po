@@ -30,7 +30,7 @@ msgstr "Bedrijven"
 #, python-format
 msgid "The lock date for advisors is irreversible and can't be removed."
 msgstr ""
-"De blokkeerdatum voor de controller is onomkeerbaar en kan niet worden "
+"De blokkeerdatum voor de controllers is onomkeerbaar en kan niet worden "
 "verwijderd."
 
 #. module: account_lock
@@ -63,7 +63,7 @@ msgid ""
 "You cannot define stricter conditions on advisors than on users. Please make"
 " sure that the lock date on advisor is set before the lock date for users."
 msgstr ""
-"Het is niet mogelijk om striktere regels te definiëren voor een controller "
+"Het is niet mogelijk om striktere regels te definiëren voor een controllers "
 "dan voor gewone gebruikers. Zorg ervoor dat de blokkeerdatum voor "
 "controllers is ingesteld voor de blokkeerdatum van gewone gebruikers. "
 

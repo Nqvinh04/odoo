@@ -466,7 +466,7 @@ def route(route=None, **kw):
         as part of the validation and does not have to be taken in
         account by your own form processing.
 
-        When adding a new controller for an unsafe method (mostly POST
+        When adding a new controllers for an unsafe method (mostly POST
         for e.g. forms):
 
         * if the form is generated in Python, a csrf token is
@@ -505,7 +505,7 @@ def route(route=None, **kw):
 
         @functools.wraps(f)
         def response_wrap(*args, **kw):
-            # if controller cannot be called with extra args (utm, debug, ...), call endpoint ignoring them
+            # if controllers cannot be called with extra args (utm, debug, ...), call endpoint ignoring them
             spec = inspect.getargspec(f)
             if not spec.keywords:
                 ignored = ['<%s=%s>' % (k, kw.pop(k)) for k in list(kw) if k not in spec.args]
@@ -884,7 +884,7 @@ class ControllerType(type):
                 if first_arg in ["req", "request"]:
                     v._first_arg_is_req = True
 
-        # store the controller in the controllers list
+        # store the controllers in the controllers list
         name_class = ("%s.%s" % (cls.__module__, cls.__name__), cls)
         class_path = name_class[0].split(".")
         if not class_path[:2] == ["odoo", "addons"]:
@@ -1177,7 +1177,7 @@ mimetypes.add_type('application/x-font-ttf', '.ttf')
 mimetypes.add_type('image/svg+xml', '.svg')
 
 class Response(werkzeug.wrappers.Response):
-    """ Response object passed through controller route chain.
+    """ Response object passed through controllers route chain.
 
     In addition to the :class:`werkzeug.wrappers.Response` parameters, this
     class's constructor can take the following additional parameters

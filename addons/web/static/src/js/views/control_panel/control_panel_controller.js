@@ -55,7 +55,7 @@ var ControlPanelController = mvc.Controller.extend({
         return this.model.exportState();
     },
     /**
-     * Called by the abstract controller to give focus to the searchbar
+     * Called by the abstract controllers to give focus to the searchbar
      */
     focusSearchBar: function () {
         if (this.renderer.searchBar) {

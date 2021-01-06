@@ -1475,7 +1475,7 @@ class Form(object):
         # re-set all resolved views on the descriptor
         descr['views'] = views
         # if the default view is a kanban or a non-editable list, the
-        # "edition controller" is the form view
+        # "edition controllers" is the form view
         edition = views['form']
         edition['tree'] = etree.fromstring(edition['arch'])
         if default_view == 'tree':

@@ -6997,7 +6997,7 @@ msgstr "Blokkeerdatum"
 #. module: account
 #: model:ir.model.fields,field_description:account.field_res_company__period_lock_date
 msgid "Lock Date for Non-Advisers"
-msgstr "Blokkeerdatum voor iedereen behalve de controller"
+msgstr "Blokkeerdatum voor iedereen behalve de controllers"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_journal__restrict_mode_hash_table

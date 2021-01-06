@@ -825,7 +825,7 @@ msgstr "სექციის ქვესათაური"
 #: model:ir.model.fields,help:website.field_ir_act_server_website_published
 msgid ""
 "A code server action can be executed from the website, using a dedicated "
-"controller. The address is <base>/website/action/<website_path>. Set this "
+"controllers. The address is <base>/website/action/<website_path>. Set this "
 "field as True to allow users to run this action. If it is set to False the "
 "action cannot be run through the website."
 msgstr ""
@@ -3516,7 +3516,7 @@ msgstr ""
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.http_error_debug
-msgid "The following error was raised in the website controller"
+msgid "The following error was raised in the website controllers"
 msgstr ""
 
 #. module: website

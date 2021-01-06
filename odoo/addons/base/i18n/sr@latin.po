@@ -3653,7 +3653,7 @@ msgstr ""
 msgid ""
 "\n"
 "This module adds required base code for a fully integrated customer portal.\n"
-"It contains the base controller class and base templates. Business addons\n"
+"It contains the base controllers class and base templates. Business addons\n"
 "will add their specific templates and controllers to extend the customer\n"
 "portal.\n"
 "\n"
@@ -9725,7 +9725,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,description:base.module_website_form
 #: model:ir.module.module,summary:base.module_website_form
-msgid "Generic controller for web forms"
+msgid "Generic controllers for web forms"
 msgstr ""
 
 #. module: base

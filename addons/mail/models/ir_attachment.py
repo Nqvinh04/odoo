@@ -8,7 +8,7 @@ class IrAttachment(models.Model):
     _inherit = 'ir.attachment'
 
     def _post_add_create(self):
-        """ Overrides behaviour when the attachment is created through the controller
+        """ Overrides behaviour when the attachment is created through the controllers
         """
         super(IrAttachment, self)._post_add_create()
         for record in self:

@@ -103,7 +103,7 @@ QUnit.module('core', {}, function () {
             "should call with correct kargs");
     });
 
-    QUnit.test('search_read controller', function (assert) {
+    QUnit.test('search_read controllers', function (assert) {
         assert.expect(1);
         var query = rpc.buildQuery({
             route: '/web/dataset/search_read',
@@ -298,7 +298,7 @@ QUnit.module('core', {}, function () {
         assert.deepEqual(query.params.kwargs.order, undefined, "should not enforce a default value for orderby");
     });
 
-    QUnit.test('search_read controller with no domain, nor fields', function (assert) {
+    QUnit.test('search_read controllers with no domain, nor fields', function (assert) {
         assert.expect(5);
         var query = rpc.buildQuery({
             model: 'partner',

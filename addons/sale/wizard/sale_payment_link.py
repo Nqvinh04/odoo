@@ -29,9 +29,9 @@ class SalePaymentLink(models.TransientModel):
         base_url = self.env['ir.config_parameter'].sudo().get_param('web.base.url')
         for payment_link in self:
             # only add order_id for SOs,
-            # otherwise the controller might try to link it with an unrelated record
+            # otherwise the controllers might try to link it with an unrelated record
             # NOTE: company_id is not necessary here, we have it in order_id
-            # however, should parsing of the id fail in the controller, let's include
+            # however, should parsing of the id fail in the controllers, let's include
             # it anyway
             if payment_link.res_model == 'sale.order':
                 payment_link.link = ('%s/website_payment/pay?reference=%s&amount=%s&currency_id=%s'

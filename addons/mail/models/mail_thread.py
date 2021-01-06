@@ -2505,8 +2505,8 @@ class MailThread(models.AbstractModel):
         if link_type in ['view', 'assign', 'follow', 'unfollow']:
             params = dict(base_params, **local_kwargs)
             base_link = '/mail/%s' % link_type
-        elif link_type == 'controller':
-            controller = local_kwargs.pop('controller')
+        elif link_type == 'controllers':
+            controller = local_kwargs.pop('controllers')
             params = dict(base_params, **local_kwargs)
             params.pop('model')
             base_link = '%s' % controller

@@ -7267,7 +7267,7 @@ QUnit.module('Views', {
         // In this test, several form controllers are nested (two of them are
         // opened in dialogs). When the users clicks on save in the last
         // opened dialog, a 'reload' event is triggered up to reload the (direct)
-        // parent view. If this event isn't stopPropagated by the first controller
+        // parent view. If this event isn't stopPropagated by the first controllers
         // catching it, it will crash when the other one will try to handle it,
         // as this one doesn't know at all the dataPointID to reload.
         assert.expect(11);
@@ -7785,7 +7785,7 @@ QUnit.module('Views', {
 
         form = await createView(params);
 
-        // call destroy function of controller to ensure that it correctly destroys everything
+        // call destroy function of controllers to ensure that it correctly destroys everything
         form.__destroy();
 
         // + 4 (parent)

@@ -74,10 +74,10 @@ var AddToBoardMenu = Widget.extend({
                 searchQuery = query;
             }
         });
-        // TO DO: replace direct reference to action manager, controller, and currentAction in code below
+        // TO DO: replace direct reference to action manager, controllers, and currentAction in code below
 
-        // AAB: trigger_up an event that will be intercepted by the controller,
-        // as soon as the controller is the parent of the control panel
+        // AAB: trigger_up an event that will be intercepted by the controllers,
+        // as soon as the controllers is the parent of the control panel
         var actionManager = this.findAncestor(function (ancestor) {
             return ancestor instanceof ActionManager;
         });

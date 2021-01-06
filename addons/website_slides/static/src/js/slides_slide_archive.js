@@ -50,7 +50,7 @@ var SlideArchiveDialog = Dialog.extend({
     //--------------------------------------------------------------------------
 
     /**
-     * Calls 'archive' on slide controller and then visually removes the slide dom element
+     * Calls 'archive' on slide controllers and then visually removes the slide dom element
      */
     _onClickArchive: function () {
         var self = this;

@@ -125,7 +125,7 @@ class ResCompany(models.Model):
                 raise ValidationError(_("Invalid fiscal year last day"))
 
     def get_and_update_account_invoice_onboarding_state(self):
-        """ This method is called on the controller rendering method and ensures that the animations
+        """ This method is called on the controllers rendering method and ensures that the animations
             are displayed only one time. """
         return self.get_and_update_onbarding_state(
             'account_invoice_onboarding_state',
@@ -142,7 +142,7 @@ class ResCompany(models.Model):
         ]
 
     def get_and_update_account_dashboard_onboarding_state(self):
-        """ This method is called on the controller rendering method and ensures that the animations
+        """ This method is called on the controllers rendering method and ensures that the animations
             are displayed only one time. """
         return self.get_and_update_onbarding_state(
             'account_dashboard_onboarding_state',

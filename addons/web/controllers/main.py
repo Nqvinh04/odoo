@@ -2009,7 +2009,7 @@ class ReportController(http.Controller):
     @http.route(['/report/download'], type='http', auth="user")
     def report_download(self, data, token, context=None):
         """This function is used by 'action_manager_report.js' in order to trigger the download of
-        a pdf/controller report.
+        a pdf/controllers report.
 
         :param data: a javascript array JSON.stringified containg report internal url ([0]) and
         type [1]

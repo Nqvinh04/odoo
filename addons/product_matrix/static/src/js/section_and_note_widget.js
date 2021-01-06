@@ -28,7 +28,7 @@ SectionAndNoteFieldOne2Many.include({
         // the getParent is to trigger the event on the form Controller instead of the one2many.
         // If not, the one2many crashes on reset because it tries to find an operation in the event
         // even if there isn't any.
-        // the only solution would be to use a custom event catched on a new controller
+        // the only solution would be to use a custom event catched on a new controllers
         // on the so/po form (as a js_class).
         this.trigger_up('field_changed', {
             dataPointID: this.dataPointID,
@@ -63,7 +63,7 @@ SectionAndNoteFieldOne2Many.include({
         // the getParent is to trigger the event on the form Controller instead of the one2many.
         // If not, the one2many crashes on reset because it tries to find an operation in the event
         // even if there isn't any.
-        // the only solution would be to use a custom event catched on a new controller
+        // the only solution would be to use a custom event catched on a new controllers
         // on the so/po form (as a js_class).
         this.trigger_up('field_changed', {
             dataPointID: this.dataPointID,

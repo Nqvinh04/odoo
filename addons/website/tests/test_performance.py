@@ -50,7 +50,7 @@ class TestWebsitePerformance(HttpCase):
         self.assertEqual(self._get_url_hot_query(self.page.url), expected_sql)
 
     def test_20_perf_sql_queries_homepage(self):
-        # homepage "/" has its own controller
+        # homepage "/" has its own controllers
         # add 5 queries for test environment (RELEASE/SAVEPOINT/ROLLBACK test_cursor)
         expected_sql = 21 + EXTRA_REQUEST
         self.assertEqual(self._get_url_hot_query('/'), expected_sql)

@@ -87,7 +87,7 @@ class ResCompany(models.Model):
         return action
 
     def get_and_update_sale_quotation_onboarding_state(self):
-        """ This method is called on the controller rendering method and ensures that the animations
+        """ This method is called on the controllers rendering method and ensures that the animations
             are displayed only one time. """
         steps = [
             'base_onboarding_company_state',

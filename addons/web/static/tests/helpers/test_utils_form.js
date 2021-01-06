@@ -57,7 +57,7 @@ function clickDiscard(form) {
  * Reloads a form view.
  *
  * @param {FormController} form
- * @param {[Object]} params given to the controller reload method
+ * @param {[Object]} params given to the controllers reload method
  */
 function reload(form, params) {
     return form.reload(params);

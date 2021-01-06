@@ -187,7 +187,7 @@ class IrHttp(models.AbstractModel):
         # If handle_exception returns something different than None, it will be used as a response
 
         # This is done first as the attachment path may
-        # not match any HTTP controller
+        # not match any HTTP controllers
         if isinstance(exception, werkzeug.exceptions.HTTPException) and exception.code == 404:
             serve = cls._serve_fallback(exception)
             if serve:
@@ -211,7 +211,7 @@ class IrHttp(models.AbstractModel):
     def _dispatch(cls):
         cls._handle_debug()
 
-        # locate the controller method
+        # locate the controllers method
         try:
             rule, arguments = cls._match(request.httprequest.path)
             func = rule.endpoint

@@ -189,7 +189,7 @@ class Crawler(HttpCase):
         self.assertEquals(len(views), 3, "It should not mix apples and oranges, only ir.ui.view ['_website_sale.products', '_theme_kea_sale.products', '_theme_kea_sale.t_called_view'] should be returned")
 
         # ########################################################
-        # Test the controller (which is calling get_related_views)
+        # Test the controllers (which is calling get_related_views)
         self.authenticate("admin", "admin")
         base_url = self.env['ir.config_parameter'].sudo().get_param('web.base.url')
 
@@ -198,7 +198,7 @@ class Crawler(HttpCase):
         json = {'params': {'website_id': website_2.id}}
         self.opener.post(url=url, json=json)
 
-        # Test controller
+        # Test controllers
         url = base_url + '/website/get_switchable_related_views'
         json = {'params': {'key': '_website_sale.products'}}
         response = self.opener.post(url=url, json=json)
@@ -211,7 +211,7 @@ class Crawler(HttpCase):
         json = {'params': {'website_id': website_1.id}}
         self.opener.post(url=url, json=json)
 
-        # Test controller
+        # Test controllers
         url = base_url + '/website/get_switchable_related_views'
         json = {'params': {'key': '_website_sale.products'}}
         response = self.opener.post(url=url, json=json)

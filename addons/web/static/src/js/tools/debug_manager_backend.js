@@ -707,7 +707,7 @@ if (config.isDebug()) {
         //----------------------------------------------------------------------
 
         /**
-         * Returns the action of the controller currently opened in a dialog,
+         * Returns the action of the controllers currently opened in a dialog,
          * i.e. a target='new' action, if any.
          *
          * @returns {Object|null}
@@ -719,7 +719,7 @@ if (config.isDebug()) {
             return null;
         },
         /**
-         * Returns the controller currently opened in a dialog, if any.
+         * Returns the controllers currently opened in a dialog, if any.
          *
          * @returns {Object|null}
          */
@@ -741,7 +741,7 @@ if (config.isDebug()) {
             // if the dialog is opened by the ActionManager, instantiate a
             // DebugManager and insert it into the DOM once the dialog is opened
             // (delay this with a setTimeout(0) to ensure that the internal
-            // state, i.e. the current action and controller, of the
+            // state, i.e. the current action and controllers, of the
             // ActionManager is set to properly update the DebugManager)
             this.opened(function() {
                 setTimeout(function () {

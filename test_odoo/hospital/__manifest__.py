@@ -16,7 +16,7 @@
     'data': [
         'data/sequence.xml',
         'security/ir.model.access.csv',
-        'patient_view.xml',
+        'views/patient_view.xml',
     ],
     # 'qweb': ['static/src/xml/*.xml'],
     'installable': True,

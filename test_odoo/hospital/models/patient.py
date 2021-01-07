@@ -29,11 +29,11 @@ class HospitalPatient(models.Model):
                 else:
                     rec.age_group = 'major'
 
-    patient_name = fields.Char(string='Name', required=True)
+    patient_name = fields.Char(string='Patient Name', required=True)
     patient_age = fields.Integer(string='Age', track_visibility="always")
     notes = fields.Text(string='Notes')
     image = fields.Binary(string='Image')
-    name = fields.Char(string='Test')
+    name = fields.Char(string='Name')
     name_seq = fields.Char(string='Order Reference', required=True, copy=False, readonly=True, index=True,
                            default=lambda self: _('New'))
     gender = fields.Selection([
@@ -44,7 +44,7 @@ class HospitalPatient(models.Model):
     age_group = fields.Selection([
         ('major', 'Major'),
         ('minor', 'Minor'),
-    ], string="Age Group", compute='set_age_group')
+    ], string="Age Group", compute='set_age_group', store=True)
 
     @api.model
     def create(self, vals):

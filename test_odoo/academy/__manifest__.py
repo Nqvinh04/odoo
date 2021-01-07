@@ -14,8 +14,8 @@
     'depends': ['base'],
     'data': [
         'security/ir.model.access.csv',
-        'views/views.xml',
-        'views/templates.xml',
+        'views/academy.xml',
+        # 'views/templates.xml',
     ],
     'demo': [
         'demo/demo.xml',

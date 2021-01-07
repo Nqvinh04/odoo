@@ -56,11 +56,11 @@
         </field>
     </record>
 
-    <menuitem id="main_academy_menu"
-              name="Academy"/>
+<!--    <menuitem id="main_academy_menu"-->
+<!--              name="Academy"/>-->
     <menuitem id="academy_menu"
-              name="Open Academy"
-              parent="main_academy_menu"/>
+              name="Open Academy"/>
+<!--              parent="main_academy_menu"/>-->
     <menuitem id="main_academy_menu"
               name="Courses"
               parent="academy_menu"

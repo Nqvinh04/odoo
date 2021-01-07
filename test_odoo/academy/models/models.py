@@ -7,8 +7,6 @@ class Course(models.Model):
     _description = 'Academy Course'
 
     name = fields.Char(string="Title", required=True, help="Name of the Course")
-    # value = fields.Integer()
-    # value2 = fields.Float(compute="_value_pc", store=True)
     description = fields.Text()
 
 class Session(models.Model):
@@ -20,7 +18,3 @@ class Session(models.Model):
     duration = fields.Float(digits=(6, 2), help="Duration in days")
     seats = fields.Integer(string="Number of seats")
 
-    # @api.depends('value')
-    # def _value_pc(self):
-    #     for record in self:
-    #         record.value2 = float(record.value) / 100

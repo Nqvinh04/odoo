@@ -10,6 +10,15 @@
 <!--            </xpath>-->
 <!--        </field>-->
 <!--    </record>-->
+    <record id="open_patient_appointments" model="ir.actions.act_window">
+        <field name="name">Appointments</field>
+<!--        <field name="type">ir.actions.act_window</field>-->
+        <field name="res_model">hospital.appointment</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('patient_id','=',active_id)]</field>
+        <field name="context">{}</field>
+    </record>
+
 
 <!--    tree view of the patient model.-->
     <record id="patient_tree" model="ir.ui.view">
@@ -34,9 +43,15 @@
             <form string="Patients">
                 <sheet>
                     <div class="oe_button_box" name="button_box">
-                        <button name="open_patient_appointments" string="Appointments"
+<!--                        Add Smart Button in Odoo (type object)-->
+                        <button name="open_patient_appointments"
                                 type="object" class="oe_stat_button" icon="fa-calendar">
-                            <field  name="appointment_count"/>
+                            <field name="appointment_count" string="(0)Appointments" widget="statinfo"/>
+                        </button>
+
+                        <button name="%(open_patient_appointments)d"
+                                type="action" class="oe_stat_button" icon="fa-usd">
+                            <field name="appointment_count" string="(A)Appointments" widget="statinfo"/>
                         </button>
                     </div>
                     <field name="image" widget="image" class="oe_avatar"/>

@@ -8,4 +8,6 @@
             name="hospital.report_patient"
             file="hospital.report_patient"
     />
+    <!--            neu gia tri menu = false thi an report
+    menu ="False"-->
 </odoo>

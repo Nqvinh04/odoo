@@ -65,11 +65,11 @@ class HospitalPatient(models.Model):
         ('male', 'Male'),
         ('fe_male', 'Female'),
     ], default='male', string="Gender")
-
     age_group = fields.Selection([
         ('major', 'Major'),
         ('minor', 'Minor'),
     ], string="Age Group", compute='set_age_group', store=True)
+    active = fields.Boolean(string='Active', default=True)
 
     @api.model
     def create(self, vals):

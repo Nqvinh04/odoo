@@ -44,14 +44,14 @@
                 <sheet>
                     <div class="oe_button_box" name="button_box">
 <!--                        Add Smart Button in Odoo (type object)-->
-                        <button name="open_patient_appointments"
-                                type="object" class="oe_stat_button" icon="fa-calendar">
-                            <field name="appointment_count" string="(0)Appointments" widget="statinfo"/>
-                        </button>
+<!--                        <button name="open_patient_appointments"-->
+<!--                                type="object" class="oe_stat_button" icon="fa-calendar">-->
+<!--                            <field name="appointment_count" string="(0)Appointments" widget="statinfo"/>-->
+<!--                        </button>-->
 
                         <button name="%(open_patient_appointments)d"
                                 type="action" class="oe_stat_button" icon="fa-usd">
-                            <field name="appointment_count" string="(A)Appointments" widget="statinfo"/>
+                            <field name="appointment_count" string=" Appointments" widget="statinfo"/>
                         </button>
                     </div>
                     <field name="image" widget="image" class="oe_avatar"/>

@@ -33,7 +33,7 @@ class HospitalAppointment(models.Model):
     notes = fields.Text(string='Registration Note', default=_get_default_note)
     doctor_note = fields.Text(string='Note')
     pharmacy_note = fields.Text(string='Note')
-    appointment_date = fields.Date(string='Date', required=True)
+    appointment_date = fields.Date(string='Date')
     state = fields.Selection([
         ('draft', 'Draft'),
         ('confirm', 'Confirm'),

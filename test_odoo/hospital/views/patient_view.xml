@@ -1,75 +1,77 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-<!--    <record id="sale_order_inherit" model="ir.ui.view">-->
-<!--        <field name="name">sale.order.inherit</field>-->
-<!--        <field name="model">sale.order</field>-->
-<!--        <field name="inherit_id" ref="sale.view_order_form"/>-->
-<!--        <field name="arch" type="xml">-->
-<!--            <xpath expr="//group[@name='partner_id']/group[1]" position="after">-->
-<!--                <field name="patient_name"/>-->
-<!--            </xpath>-->
-<!--        </field>-->
-<!--    </record>-->
+
+
+    <!--action to open the appointments of the patient-->
     <record id="open_patient_appointments" model="ir.actions.act_window">
         <field name="name">Appointments</field>
-<!--        <field name="type">ir.actions.act_window</field>-->
+        <field name="type">ir.actions.act_window</field>
         <field name="res_model">hospital.appointment</field>
         <field name="view_mode">tree,form</field>
         <field name="domain">[('patient_id','=',active_id)]</field>
-        <field name="context">{}</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Create your First Appointment !
+          </p>
+        </field>
     </record>
 
-
-<!--    tree view of the patient model.-->
+    <!--tree view of the patient model-->
     <record id="patient_tree" model="ir.ui.view">
         <field name="name">hospital.patient.tree</field>
         <field name="model">hospital.patient</field>
         <field name="arch" type="xml">
             <tree string="Patients">
-                <field name="name_seq"/>
                 <field name="patient_name"/>
+                <field name="name_seq"/>
                 <field name="age_group"/>
-                <field name="gender"/>
                 <field name="patient_age"/>
+                <field name="gender"/>
                 <field name="notes"/>
             </tree>
         </field>
-    </record>
+     </record>
 
-<!--    form view of the patient model-->
-    <record id="patient_form"  model="ir.ui.view">
+    <!--form view of the patient model-->
+    <record id="patient_form" model="ir.ui.view">
         <field name="name">hospital.patient.form</field>
         <field name="model">hospital.patient</field>
         <field name="arch" type="xml">
             <form string="Patients">
                 <sheet>
                     <div class="oe_button_box" name="button_box">
-<!--                        Add Smart Button in Odoo (type object)-->
-                        <button name="open_patient_appointments"
-                                type="object" class="oe_stat_button" icon="fa-calendar">
-                            <field name="appointment_count" string="(0)Appointments" widget="statinfo"/>
+                        <button name="open_patient_appointments" class="oe_stat_button" type="object" icon="fa-calendar">
+                            <field string="Appointments" name="appointment_count" widget="statinfo"/>
                         </button>
-
-                        <button name="%(open_patient_appointments)d"
-                                type="action" class="oe_stat_button" icon="fa-usd">
-                            <field name="appointment_count" string=" Appointments" widget="statinfo"/>
+                        <button name="%(open_patient_appointments)d" class="oe_stat_button" type="action" icon="fa-usd">
+                            <field string="Appointments" name="appointment_count" widget="statinfo"/>
                         </button>
                     </div>
-                    <field name="image" widget="image" class="oe_avatar"/>
-                    <div class="oe_title">
+                     <field name="image" widget="image" class="oe_avatar"/>
+                     <div class="oe_title">
                         <h1>
-                            <field name="name_seq" readonly="1"/>
+                            <field name="patient_name"/>
                         </h1>
                     </div>
                     <group>
                         <group>
-                            <field name="patient_name"/>
-                            <field name="name"/>
+<!--                            <field name="patient_name_upper" groups="base.group_no_one"/>-->
+                            <field name="patient_age" options='{"type": "number", "step": 10}'/>
+<!--                            <field name="patient_age2" widget="float_toggle" options='{"range": [0, 1, 2, 3, 4, 5, 6, 7,  8, 9, 10, 11]}'/>-->
+                            <field name="gender"/>
+                            <field name="doctor_id"/>
+<!--                            <field name="doctor_id" attrs="{'invisible': [('gender','!=', 'male')]}"-->
+<!--                                   options="{'no_create_edit': True, 'no_create': True, 'no_open': True}"/>-->
+<!--                            <field name="doctor_gender"/>-->
+<!--                            <field name="user_id"/>-->
+                            <!--<field name="xml_id"/>-->
                         </group>
                         <group>
-                            <field name="patient_age"/>
-                            <field name="gender"/>
+                            <field name="name" groups="hospital.group_hospital_manager"/>
+<!--                            <field name="email_id"/>-->
                             <field name="age_group"/>
+                            <field name="name_seq" readonly="1"/>
+<!--                            <field name="company_id" groups="base.group_multi_company"/>-->
                         </group>
                     </group>
                     <group>
@@ -77,14 +79,51 @@
                     </group>
                 </sheet>
                 <div class="oe_chatter">
-                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
-                        <field name="activity_ids" widget="mail_activity"/>
-                        <field name="message_ids" widget="mail_thread"/>
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
                 </div>
             </form>
         </field>
     </record>
 
+<!--    <record id="patient_kanban" model="ir.ui.view">-->
+<!--        <field name="name">hospital.patient.kanban</field>-->
+<!--        <field name="model">hospital.patient</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <kanban default_group_by="doctor_id">-->
+<!--                <field name="id"/>-->
+<!--                <field name="image"/>-->
+<!--                <field name="doctor_id"/>-->
+<!--                <field name="patient_age"/>-->
+<!--&lt;!&ndash;                <field name="email_id"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                <templates>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <t t-name="kanban-box">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_hospital_patient_kanban">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <t t-if="record.image.raw_value">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <div class="o_kanban_image_fill_left d-none d-md-block"&ndash;&gt;-->
+<!--&lt;!&ndash;                                     t-attf-style="background-image:url('#{kanban_image('hospital.patient', 'image', record.id.raw_value)}')"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </t>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <t t-else="">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <img class="o_kanban_image" alt="Avatar" t-att-src='_s + "/base/static/img/avatar.png"'/>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </t>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div class="oe_kanban_details">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <strong class="o_kanban_record_title"><field name="display_name"/></strong>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <div class="o_kanban_tags_section"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <ul>&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <li>Age : <field name="patient_age"/></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <li>Doctor : <field name="doctor_id"/></li>&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                                    <li>Email : <field name="email_id"/></li>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                                </ul>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </t>&ndash;&gt;-->
+<!--&lt;!&ndash;                </templates>&ndash;&gt;-->
+<!--            </kanban>-->
+<!--        </field>-->
+<!--    </record>-->
+
+    <!--search view for the patient-->
     <record id="hospital_patient_search" model="ir.ui.view">
         <field name="name">hospital.patient.search</field>
         <field name="model">hospital.patient</field>
@@ -93,29 +132,33 @@
                 <field name="name" filter_domain="['|',('patient_name', 'ilike', self),('name_seq', 'ilike', self)]"/>
                 <field name="name_seq"/>
                 <field name="patient_name"/>
-                <separator/>
+                <separator />
                 <filter string="Male" name="male" domain="[('gender', '=', 'male')]"/>
                 <filter string="Female" name="female" domain="[('gender', '=', 'fe_male')]"/>
                 <group expand="0" string="Group By">
-                    <filter string="Gender" name="gender" context="{'group_by': 'gender'}"/>
+                    <filter string="Gender" name="gender" context="{'group_by':'gender'}"/>
                 </group>
             </search>
         </field>
     </record>
 
-    <record id="action_patient" model="ir.actions.act_window">
-            <field name="name">Patients</field>
-            <field name="type">ir.actions.act_window</field>
-            <field name="res_model">hospital.patient</field>
-            <field name="view_mode">tree,form</field>
-            <field name="context">{"search_default_male": 0 }</field>
-            <field name="help" type="html">
-              <p class="o_view_nocontent_smiling_face">
-                  Create Your First Patient !
-              </p>
-            </field>
-        </record>
+    <!--Creating New Menu and Actions-->
 
+    <!--action of the patients menu-->
+    <record id="action_patient" model="ir.actions.act_window">
+        <field name="name">Patients</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hospital.patient</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{"search_default_female":1}</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Create your First Patient !
+          </p>
+        </field>
+    </record>
+
+    <!--creating menus-->
     <menuitem id="hospital_root"
               name="Hospital"
               sequence="0"
@@ -128,4 +171,3 @@
               action="action_patient"/>
 
 </odoo>
-

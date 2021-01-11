@@ -19,6 +19,7 @@
         'security/ir.model.access.csv',
         'views/patient_view.xml',
         'views/appointment.xml',
+        'views/doctor.xml',
         'reports/patient_card.xml',
         'reports/report.xml',
     ],

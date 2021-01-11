@@ -14,6 +14,7 @@
              </tree>
         </field>
     </record>
+
    <!--form view of the appointment model-->
     <record id="appointment_form" model="ir.ui.view">
         <field name="name">hospital.appointment.form</field>

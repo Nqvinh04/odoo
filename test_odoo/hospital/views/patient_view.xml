@@ -38,6 +38,10 @@
         <field name="model">hospital.patient</field>
         <field name="arch" type="xml">
             <form string="Patients">
+                <header>
+                    <button name="%(hospital.create_appointment_wizard)d" string="Create Appointment"
+                            type="action" class="oe_highlight"/>
+                </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
                         <button name="open_patient_appointments" class="oe_stat_button" type="object" icon="fa-calendar">
@@ -63,8 +67,8 @@
 <!--                            <field name="doctor_id" attrs="{'invisible': [('gender','!=', 'male')]}"-->
 <!--                                   options="{'no_create_edit': True, 'no_create': True, 'no_open': True}"/>-->
 <!--                            <field name="doctor_gender"/>-->
-<!--                            <field name="user_id"/>-->
-                            <!--<field name="xml_id"/>-->
+<!--                            <field name="user_id"/> -->
+<!--                            <field name="xml_id"/>-->
                         </group>
                         <group>
                             <field name="name" groups="hospital.group_hospital_manager"/>

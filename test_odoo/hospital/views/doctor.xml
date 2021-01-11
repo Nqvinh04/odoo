@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-        <template id="products" name="Products">
-            <t t-call="website.layout">
-                Patients
-                <t t-foreach="patients" t-as="pat">
-                    <t t-esc="pat.patient_name"/>
-                </t>
-            </t>
-        </template>
+<!--        <template id="products" name="Products">-->
+<!--            <t t-call="website.layout">-->
+<!--                Patients-->
+<!--                <t t-foreach="patients" t-as="pat">-->
+<!--                    <t t-esc="pat.patient_name"/>-->
+<!--                </t>-->
+<!--            </t>-->
+<!--        </template>-->
 
     <!--tree view of the doctor model-->
     <record id="doctor_tree" model="ir.ui.view">
@@ -48,7 +48,7 @@
         <field name="model">hospital.doctor</field>
         <field name="priority" eval="10"/>
         <field name="arch" type="xml">
-            <form string="Patients">
+            <form string="Doctor">
                 <sheet>
                     <group>
                         <group>

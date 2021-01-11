@@ -71,10 +71,10 @@ class HospitalPatient(models.Model):
     ], string="Age Group", compute='set_age_group', store=True)
     active = fields.Boolean(string='Active', default=True)
     doctor_id = fields.Many2one('hospital.doctor', string="Doctor")
-    doctor_gender = fields.Selection([
-        ('male', 'Male'),
-        ('fe_male', 'Female'),
-    ], string="Doctor Gender")
+    # doctor_gender = fields.Selection([
+    #     ('male', 'Male'),
+    #     ('fe_male', 'Female'),
+    # ], string="Doctor Gender")
 
     @api.model
     def create(self, vals):

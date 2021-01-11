@@ -6,7 +6,7 @@ from odoo import models, fields
 # Creating Model/Table to Store Doctor Details
 class HospitalDoctor(models.Model):
     _name = 'hospital.doctor'
-    _inherits = {'hospital.patient': 'related_patient_id'}
+    # _inherits = {'hospital.patient': 'related_patient_id'}
     _description = 'Doctor Record'
 
     name = fields.Char(string="Name", required=True)

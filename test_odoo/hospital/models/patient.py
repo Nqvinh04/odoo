@@ -53,6 +53,14 @@ class HospitalPatient(models.Model):
         count = self.env['hospital.appointment'].search_count([('patient_id', '=', self.id)])
         self.appointment_count = count
 
+    @api.onchange('doctor_id')
+    def set_doctor_gender(self):
+        for rec in self:
+            if rec.doctor_id:
+                rec.doctor_gender = rec.doctor_id.gender
+
+
+
     patient_name = fields.Char(string='Patient Name', required=True)
     patient_age = fields.Integer(string='Age', track_visibility="always")
     notes = fields.Text(string='Notes')
@@ -71,10 +79,10 @@ class HospitalPatient(models.Model):
     ], string="Age Group", compute='set_age_group', store=True)
     active = fields.Boolean(string='Active', default=True)
     doctor_id = fields.Many2one('hospital.doctor', string="Doctor")
-    # doctor_gender = fields.Selection([
-    #     ('male', 'Male'),
-    #     ('fe_male', 'Female'),
-    # ], string="Doctor Gender")
+    doctor_gender = fields.Selection([
+        ('male', 'Male'),
+        ('fe_male', 'Female'),
+    ], string="Doctor Gender")
 
     @api.model
     def create(self, vals):

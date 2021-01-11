@@ -174,4 +174,9 @@
               sequence="0"
               action="action_patient"/>
 
+    <menuitem id="create_appointment"
+              name="Create Appointment"
+              parent="hospital_root"
+              action="create_appointment_wizard"/>
+
 </odoo>

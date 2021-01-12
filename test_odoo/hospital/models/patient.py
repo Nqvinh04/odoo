@@ -22,6 +22,10 @@ class HospitalPatient(models.Model):
     _description = 'Patient Record'
     _rec_name = 'patient_name'
 
+    @api.model
+    def test_cron_job(self):
+        print("abc")
+
     def name_get(self):
         res = []
         for rec in self:

@@ -65,6 +65,12 @@ class HospitalPatient(models.Model):
             if rec.doctor_id:
                 rec.doctor_gender = rec.doctor_id.gender
 
+    @api.onchange('doctor_id')
+    def set_doctor_user(self):
+        for rec in self:
+            if rec.doctor_id:
+                rec.user_id = rec.doctor_id.user_id
+
 
 
     patient_name = fields.Char(string='Patient Name', required=True)
@@ -84,7 +90,9 @@ class HospitalPatient(models.Model):
         ('minor', 'Minor'),
     ], string="Age Group", compute='set_age_group', store=True)
     active = fields.Boolean(string='Active', default=True)
+    user_id = fields.Many2one('res.users', string="PRO")
     doctor_id = fields.Many2one('hospital.doctor', string="Doctor")
+    email_id = fields.Char(string="Email")
     doctor_gender = fields.Selection([
         ('male', 'Male'),
         ('fe_male', 'Female'),

@@ -16,6 +16,7 @@
     'data': [
         'data/sequence.xml',
         'data/data.xml',
+        'data/mail_template.xml',
         'security/ir.model.access.csv',
         'security/security.xml',
         'wizards/create_appointment.xml',

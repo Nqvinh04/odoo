@@ -71,6 +71,14 @@ class HospitalPatient(models.Model):
             if rec.doctor_id:
                 rec.user_id = rec.doctor_id.user_id
 
+    def action_send_card(self):
+        template_id = self.env.ref('hospital.patient_card_email_template').id
+        template = self.env['mail.template'].browse(template_id)
+        template.send_mail(self.id, force_send=True)
+        # self.env['mail.template'].browse(template_id).send_mail(self.id, force_send=True)
+
+
+
 
 
     patient_name = fields.Char(string='Patient Name', required=True)

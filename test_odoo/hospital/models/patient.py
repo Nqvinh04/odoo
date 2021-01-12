@@ -78,7 +78,15 @@ class HospitalPatient(models.Model):
         # self.env['mail.template'].browse(template_id).send_mail(self.id, force_send=True)
 
 
+    @api.depends('patient_name')
+    def _compute_upper_name(self):
+        for rec in self:
+            rec.patient_name_upper = rec.patient_name.upper() if rec.patient_name else False
 
+
+    def _inverse_upper_name(self):
+        for rec in self:
+            rec.patient_name = rec.patient_name_upper.lower() if rec.patient_name_upper else False
 
 
     patient_name = fields.Char(string='Patient Name', required=True)
@@ -105,6 +113,7 @@ class HospitalPatient(models.Model):
         ('male', 'Male'),
         ('fe_male', 'Female'),
     ], string="Doctor Gender")
+    patient_name_upper = fields.Char(compute='_compute_upper_name', inverse='_inverse_upper_name')
 
     @api.model
     def create(self, vals):

@@ -71,7 +71,7 @@
                     </div>
                     <group>
                         <group>
-<!--                            <field name="patient_name_upper" groups="base.group_no_one"/>-->
+                            <field name="patient_name_upper"/>
                             <field name="patient_age" options='{"type": "number", "step": 10}'/>
 <!--                            <field name="patient_age2" widget="float_toggle" options='{"range": [0, 1, 2, 3, 4, 5, 6, 7,  8, 9, 10, 11]}'/>-->
                             <field name="gender"/>
